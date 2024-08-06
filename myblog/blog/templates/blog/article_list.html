@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Articles</h1>
+<a href="{% url 'article_create' %}" class="btn btn-primary mb-3">Create New Article</a>
+<div class="list-group">
+    {% for article in articles %}
+        <a href="{% url 'article_detail' article.pk %}" class="list-group-item list-group-item-action">
+            <h5 class="mb-1">{{ article.title }}</h5>
+            <small>by {{ article.author }}</small>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}
